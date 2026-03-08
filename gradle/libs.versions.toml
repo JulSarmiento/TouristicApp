@@ -7,9 +7,10 @@ espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.10.0"
 activityCompose = "1.12.4"
 kotlin = "2.3.10"
-composeBom = "2026.02.00"
-ktorVersion = "3.4.0"
+composeBom = "2026.02.01"
+ktorVersion = "3.4.1"
 kotlinSerialization = "2.3.10"
+lifecycleVersion = "2.10.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,12 +30,21 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 
 
 # Ktor dependencies
-ktor-client = { group = "io.ktor", name = "ktor-bom", version.ref = "ktorVersion" }
+#ktor-client = { group = "io.ktor", name = "ktor-bom", version.ref = "ktorVersion" }
 ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktorVersion" }
 ktor-client-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktorVersion"  }
 ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktorVersion" }
 ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktorVersion" }
 ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktorVersion" }
+ktor-serialization-kotlin-xml = { group = "io.ktor", name = "ktor-serialization-kotlinx-xml", version.ref = "ktorVersion" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorVersion" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorVersion" }
+#ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktorVersion" }
+
+
+# lifeCycle
+viewmodelLifeCycle = {group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleVersion" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -44,11 +54,15 @@ kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", vers
 
 [bundles]
 ktor-client = [
-    "ktor-client",
+#    "ktor-client",
     "ktor-client-android",
     "ktor-client-serialization",
     "ktor-client-logging",
     "ktor-client-content-negotiation",
-    "ktor-serialization-kotlinx-json"
+    "ktor-serialization-kotlinx-json",
+    "ktor-serialization-kotlin-xml",
+    "ktor-client-core",
+    "ktor-client-okhttp",
+#    "ktor-client-darwin"
 ]
 
