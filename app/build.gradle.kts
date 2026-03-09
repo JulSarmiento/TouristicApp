@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -49,6 +51,11 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+
+    // Hilt
+    implementation(libs.hilt)
+    implementation(libs.hilt.navigation.compose)
+    ksp(libs.hilt.compiler)
 
     implementation(libs.bundles.ktor.client)
     implementation(libs.viewmodelLifeCycle)

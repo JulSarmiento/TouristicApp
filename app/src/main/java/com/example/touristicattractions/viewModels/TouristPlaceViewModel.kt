@@ -3,15 +3,17 @@ package com.example.touristicattractions.viewModels
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.touristicattractions.data.model.ResponseTouristPlace
 import com.example.touristicattractions.data.model.TouristPlace
 import com.example.touristicattractions.data.repository.TouristPlaceRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class TouristPlaceViewModel(
+@HiltViewModel
+class TouristPlaceViewModel @Inject constructor(
   private val repository: TouristPlaceRepository
 ) : ViewModel() {
 
@@ -20,7 +22,6 @@ class TouristPlaceViewModel(
 
   init {
     getTouristicPlaces()
-
   }
 
   private fun getTouristicPlaces() {
